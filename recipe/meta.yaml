@@ -1,5 +1,5 @@
 {% set name = "aws-c-common" %}
-{% set version = "0.5.2" %}
+{% set version = "0.5.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/awslabs/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: d5f7d8df331efb2591801b512f00b0a352e45f94df61afc343106c7b9035c920
+  sha256: 9e559bef5a42ae8b20ed41fe07fff65b3fab57958df070d842b8ea011a3ebb50
   patches:
     - no-werror.patch
     - 0001-Don-t-hardcode-the-CoreFoundation-path.patch

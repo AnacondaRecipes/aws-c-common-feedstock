@@ -10,7 +10,7 @@ source:
   sha256: 70281d07f51026a97e0b0386931bc3f3a412de06948375ba511023c2165bbe1f
   patches:
     - no-werror.patch
-    - 0001-Don-t-hardcode-the-CoreFoundation-path.patch
+#    - 0001-Don-t-hardcode-the-CoreFoundation-path.patch
 
 build:
   number: 0

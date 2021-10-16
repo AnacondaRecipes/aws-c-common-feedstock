@@ -1,5 +1,5 @@
 {% set name = "aws-c-common" %}
-{% set version = "0.6.8" %}
+{% set version = "0.6.14" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/awslabs/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 2997e851ed690a614507a43f4c393f45a198614d94da1660ecdf9b5a729535fc
+  sha256: 1691c9dad5a0d236c2a0e351cc972231b176947e454c61d1c4b3ea4ab42f32e7
   #patches:
   # 6/10/2021: Compilation warnings was fixed https://github.com/figleafteam/aws-sdk-cpp/pull/4
   #  - no-werror.patch

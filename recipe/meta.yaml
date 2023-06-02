@@ -8,23 +8,19 @@ package:
 source:
   url: https://github.com/awslabs/{{ name }}/archive/v{{ version }}.tar.gz
   sha256: 2997e851ed690a614507a43f4c393f45a198614d94da1660ecdf9b5a729535fc
-  #patches:
-  # 6/10/2021: Compilation warnings was fixed https://github.com/figleafteam/aws-sdk-cpp/pull/4
-  #  - no-werror.patch
-  #  - 0001-Don-t-hardcode-the-CoreFoundation-path.patch
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage("aws-c-common", max_pin="x.x.x") }}
+  missing_dso_whitelist:
+    - $RPATH/ld64.so.1  # [s390x]
 
 requirements:
   build:
     - cmake !=3.19.0,!=3.19.1
     - {{ compiler('c') }}
     - ninja
-    - patch  # [unix]
-    - m2-patch  # [win]
 
 test:
   commands:
@@ -43,8 +39,10 @@ about:
   license_family: Apache
   license_file: LICENSE
   summary: Core c99 package for AWS SDK for C. Includes cross-platform primitives, configuration, data structures, and error handling.
+  description: Core c99 package for AWS SDK for C. Includes cross-platform primitives, configuration, data structures, and error handling.
   doc_url: https://github.com/awslabs/aws-c-common#readme
   dev_url: https://github.com/awslabs/aws-c-common
+
 extra:
   recipe-maintainers:
     - xhochy

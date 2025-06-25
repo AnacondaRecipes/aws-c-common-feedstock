@@ -1,5 +1,5 @@
 {% set name = "aws-c-common" %}
-{% set version = "0.11.1" %}
+{% set version = "0.12.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,20 +7,18 @@ package:
 
 source:
   url: https://github.com/awslabs/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: b442cc59f507fbe232c0ae433c836deff83330270a58fa13bf360562efda368a
+  sha256: a4e7ac6c6f840cb6ab56b8ee0bcd94a61c59d68ca42570bca518432da4c94273
 
 build:
   number: 0
   run_exports:
     - {{ pin_subpackage("aws-c-common", max_pin="x.x.x") }}
-  missing_dso_whitelist:
-    - $RPATH/ld64.so.1  # [s390x]
 
 requirements:
   build:
-    - cmake !=3.19.0,!=3.19.1
     - {{ compiler('c') }}
     - ninja-base
+    - cmake
 
 test:
   commands:

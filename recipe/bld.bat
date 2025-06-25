@@ -1,9 +1,6 @@
 mkdir "%SRC_DIR%"\build
 pushd "%SRC_DIR%"\build
 
-dir /s /b
-if errorlevel 1 exit 1
-
 REM set UTF-8 mode by default
 chcp 65001
 if errorlevel 1 exit 1
@@ -15,6 +12,8 @@ cmake -GNinja ^
       -DBUILD_SHARED_LIBS=ON ^
       -DCMAKE_POSITION_INDEPENDENT_CODE=ON ^
       -DBUILD_TESTING=ON ^
+      -DCMAKE_CXX_FLAGS="/utf-8" ^
+      -DCMAKE_C_FLAGS="/utf-8" ^
       ..
 if errorlevel 1 exit 1
 

@@ -1,5 +1,3 @@
-@echo on
-
 dir /s
 
 chcp 65001

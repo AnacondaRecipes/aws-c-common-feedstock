@@ -21,6 +21,8 @@ if errorlevel 1 exit 1
 cmake --build . --config Release --target install
 if errorlevel 1 exit 1
 
+echo Plik do zmiany: %SRC_DIR%\tests\resources\├à ├ëxample.txt
+
 REM Encoding issue, setting UTF-8 doesn't help, "Å Éxample.txt" is correct name in upstream, fix for test:
 REM aws_fopen_non_ascii_read_existing_file_test: static: Failed to open file. path:'Å Éxample.txt'
 RENAME "%SRC_DIR%\tests\resources\├à ├ëxample.txt" "Å Éxample.txt"

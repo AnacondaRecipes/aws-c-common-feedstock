@@ -1,9 +1,13 @@
 mkdir "%SRC_DIR%"\build
 pushd "%SRC_DIR%"\build
 
-REM set UTF-8 mode by default
+@echo off
+dir /s
+
 chcp 65001
 if errorlevel 1 exit 1
+
+dir /s
 
 cmake -GNinja ^
       -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^

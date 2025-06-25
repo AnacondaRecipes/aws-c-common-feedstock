@@ -1,3 +1,12 @@
+@echo on
+
+dir /s
+
+chcp 65001
+if errorlevel 1 exit 1
+
+dir /s
+
 mkdir "%SRC_DIR%"\build
 pushd "%SRC_DIR%"\build
 

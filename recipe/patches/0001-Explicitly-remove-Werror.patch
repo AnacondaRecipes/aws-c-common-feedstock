@@ -1,0 +1,42 @@
+From 0e16ab4513f5e87e2b1429d345108cd7232c3406 Mon Sep 17 00:00:00 2001
+From: PatrykKups <pkups@anaconda.com>
+Date: Thu, 26 Jun 2025 08:21:40 +0200
+Subject: [PATCH] Explicitly remove Werror
+
+---
+ cmake/AwsCFlags.cmake | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/cmake/AwsCFlags.cmake b/cmake/AwsCFlags.cmake
+index b9d2f64..82d28a7 100644
+--- a/cmake/AwsCFlags.cmake
++++ b/cmake/AwsCFlags.cmake
+@@ -60,9 +60,9 @@ function(aws_set_common_properties target)
+ 
+         list(APPEND AWS_C_FLAGS /W4 /MP)
+ 
+-        if(AWS_WARNINGS_ARE_ERRORS)
+-            list(APPEND AWS_C_FLAGS /WX)
+-        endif()
++        # if(AWS_WARNINGS_ARE_ERRORS)
++        #     list(APPEND AWS_C_FLAGS /WX)
++        # endif()
+ 
+         # /volatile:iso relaxes some implicit memory barriers that MSVC normally applies for volatile accesses
+         # Since we want to be compatible with user builds using /volatile:iso, use it for the tests.
+@@ -95,9 +95,9 @@ function(aws_set_common_properties target)
+ 
+         list(APPEND AWS_C_FLAGS $<$<NOT:$<CONFIG:Release>>:-fno-omit-frame-pointer>)
+ 
+-        if(AWS_WARNINGS_ARE_ERRORS)
+-            list(APPEND AWS_C_FLAGS -Werror)
+-        endif()
++        # if(AWS_WARNINGS_ARE_ERRORS)
++        #     list(APPEND AWS_C_FLAGS -Werror)
++        # endif()
+ 
+         if(NOT SET_PROPERTIES_NO_WEXTRA)
+             list(APPEND AWS_C_FLAGS -Wextra)
+-- 
+2.39.5 (Apple Git-154)
+

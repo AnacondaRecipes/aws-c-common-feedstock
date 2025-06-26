@@ -9,6 +9,12 @@ cmake ${CMAKE_ARGS} -GNinja \
   -DCMAKE_INSTALL_LIBDIR=lib \
   -DCMAKE_BUILD_TYPE=Release \
   -DBUILD_SHARED_LIBS=ON \
+  -DCMAKE_POSITION_INDEPENDENT_CODE=ON \
+  -DBUILD_TESTING=ON \
   ..
-ninja install
+
+cmake --build . --config Release --target install
+
+ctest --output-on-failure -j${CPU_COUNT}
+
 popd

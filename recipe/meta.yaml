@@ -1,5 +1,5 @@
 {% set name = "aws-c-common" %}
-{% set version = "0.12.3" %}
+{% set version = "0.12.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/awslabs/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: a4e7ac6c6f840cb6ab56b8ee0bcd94a61c59d68ca42570bca518432da4c94273
+  sha256: 0b7705a4d115663c3f485d353a75ed86e37583157585e5825d851af634b57fe3
   patches:
     - patches/0001-Explicitly-remove-Werror.patch
 
@@ -18,8 +18,6 @@ build:
 
 requirements:
   build:
-    - patch  # [not win]
-    - m2-patch  # [win]
     - {{ compiler('c') }}
     - ninja-base
     - cmake >=3.9

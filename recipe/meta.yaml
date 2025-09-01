@@ -18,7 +18,7 @@ build:
 
 requirements:
   build:
-    - {{ stdlib('c') }}
+    # - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - ninja-base
     - cmake >=3.9
@@ -29,10 +29,10 @@ test:
     - test -f $PREFIX/include/aws/common/config.h  # [unix]
     - test -f $PREFIX/lib/cmake/aws-c-common/modules/AwsCFlags.cmake  # [unix]
     - test -f $PREFIX/lib/cmake/aws-c-common/modules/AwsFindPackage.cmake  # [unix]
-    - if not exist %PREFIX%\\Library\\bin\\aws-c-common.dll exit 1  # [win]
-    - if not exist %PREFIX%\\Library\\include\\aws\\common\\config.h exit 1  # [win]
-    - if not exist %PREFIX%\\Library\\lib\\cmake\\aws-c-common\\modules\\AwsCFlags.cmake exit 1  # [win]
-    - if not exist %PREFIX%\\Library\\lib\\cmake\\aws-c-common\\modules\\AwsFindPackage.cmake exit 1  # [win]
+    - if not exist %LIBRARY_BIN%\aws-c-common.dll exit 1  # [win]
+    - if not exist %LIBRARY_INC%\aws\common\config.h exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\cmake\aws-c-common\modules\AwsCFlags.cmake exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\cmake\aws-c-common\modules\AwsFindPackage.cmake exit 1  # [win]
 
 about:
   home: https://github.com/awslabs/aws-c-common

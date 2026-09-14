@@ -8,12 +8,13 @@ package:
 source:
   url: https://github.com/awslabs/{{ name }}/archive/v{{ version }}.tar.gz
   sha256: 103273767fea478545b75a0835c7dc60842baee0a191a112c72f904d22693c84
+  patches:
+    - patches/0001_add_AwsGetVersion.patch # todo: remove with bumping into 1.0.0 version
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage("aws-c-common", max_pin="x.x.x") }}
-
 requirements:
   build:
     - {{ stdlib('c') }}

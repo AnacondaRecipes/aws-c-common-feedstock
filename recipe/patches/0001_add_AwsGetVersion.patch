@@ -1,0 +1,25 @@
+From 29d212d785dd77d041b619d3a9c264486cb72a8c Mon Sep 17 00:00:00 2001
+From: maciej traczyk <mtraczyk@anaconda.com>
+Date: Mon, 14 Sep 2026 13:08:15 +0200
+Subject: [PATCH] add EXPORT_MODULE for AwsGetVersion.cmake into main
+ CMakeList.txt
+
+---
+ CMakeLists.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 48842499..84d2226c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -324,6 +324,7 @@ list(APPEND EXPORT_MODULES
+     "cmake/AwsFindPackage.cmake"
+     "cmake/AwsFeatureTests.cmake"
+     "cmake/AwsCRuntime.cmake"
++    "cmake/AwsGetVersion.cmake"
+     )
+ 
+ install(FILES ${EXPORT_MODULES}
+-- 
+2.51.0
+
